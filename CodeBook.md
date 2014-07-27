@@ -26,12 +26,17 @@ All of the other data sets loaded into R provide auxilary information about the 
 
 __What the script does:__
 
--In part (1) of the script, the two main data sets and auxilary data are loaded in.
--In part (2) of the script, a grep is performed on the list of variable descriptors to determine which measurements contain information about mean() or std() calculations. This includes measurements of meanFreq(). Then, then two main data sets are subsetted to retain only the columns corresponding with these measurements.
--In part (3) of the script, the auxiliary data is used to give names to the columns of the two main data sets. Also, additional columns are added to the two main data sets to indicate the Subject and Activity for each observation.
--In part (4) the two main data sets, now with descriptive variable names and extra columns, are merged with a row bind.
--In part (5) the unified dataset is further tidied by replacing numeric activity labels with better character descriptions.
--In part (6), the reshape2 library is loaded, and melt() and cast() are used to produced a tidy, summarized dataset that displays the average of each variable for each activity and each subject.
+In part (1) of the script, the two main data sets and auxilary data are loaded in.
+
+In part (2) of the script, a grep is performed on the list of variable descriptors to determine which measurements contain information about mean() or std() calculations. This includes measurements of meanFreq(). Then, then two main data sets are subsetted to retain only the columns corresponding with these measurements.
+
+In part (3) of the script, the auxiliary data is used to give names to the columns of the two main data sets. Also, additional columns are added to the two main data sets to indicate the Subject and Activity for each observation.
+
+In part (4) the two main data sets, now with descriptive variable names and extra columns, are merged with a row bind.
+
+In part (5) the unified dataset is further tidied by replacing numeric activity labels with better character descriptions.
+
+In part (6), the reshape2 library is loaded, and melt() and cast() are used to produced a tidy, summarized dataset that displays the average of each variable for each activity and each subject.
 
 ### 3. Original source of the data and info from the original (Version 1.0) codebook
 ------------
