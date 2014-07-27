@@ -14,7 +14,7 @@
 if(!file.exists("data")){
         dir.create("data")
 }
-fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileURL, destfile="./data/smartphones.zip", method="curl")
 unzip("./data/smartphones.zip", exdir="./data")
 
@@ -84,3 +84,7 @@ library(reshape2)
 dataMelt <- melt(fullData, id.vars=1:2)
 tidyData <- dcast(dataMelt, Activity + Subject.Label ~ variable, mean)
 write.table(tidyData, "./data/tidyData.txt", row.names=FALSE)
+
+# Additional info for the codebook
+codes <- colnames(fullData)
+write.table(codes, "./data/codes.txt", row.names=FALSE, col.names=FALSE)
