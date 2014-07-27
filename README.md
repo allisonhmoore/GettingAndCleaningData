@@ -1,15 +1,16 @@
-# Human Activity Recognition Using Smartphones Dataset
-# Version 2.0
-### A script to tidy the "Human Activity Recognition Using Smartphones Dataset, Version 1.0"
-### and codebook describing the variables in Version 2.0 (tidied dataset)
+## Human Activity Recognition Using Smartphones Dataset
+## Version 2.0
+A script to tidy the "Human Activity Recognition Using Smartphones Dataset, Version 1.0" and codebook describing the variables in Version 2.0 (tidied dataset)
 
-### This repo contains three files:
+### This repo contains four files:
 ------------
-* run_analysis.R -- this is script which downloads a certain set of smartphone data, then 
-merges and tidies the data sets and produces a single, tidy dataset summarizing some of the
-variables.
-* codebook.md -- a codebook describing the variables in the tidy dataset
 * README.md -- this file.
+* run_analysis.R -- this is script which downloads a certain set of smartphone data, then 
+        merges and tidies the data sets and produces a single, tidy dataset summarizing some 
+        of the variables.
+* CodeBook.md -- a codebook describing the variables in the tidy dataset
+* codebook_helper.R -- an optional helper file that programmatically creates the variable descriptions 
+        seen in Codebook.md.
 
 ### Information about run_analysis.R
 ------------
@@ -29,3 +30,8 @@ subject label and activity. Subject labels range between  1 and 30 (that is, the
 is one of six types (walking, walking upstairs, walking downstairs, sitting, standing, laying). For each subject label and activity, the remaining 79 variables each provide an average value of a certian kind of measurement. 
 
 Detailed information about the variables, the data, and transformations applied to clean up the data is available in CodeBook.md.
+
+#### Information about codebook_helper.R
+This script takes descriptions about the data from the original source data files, and complies an
+appropriate description for each of the variables appearing in the tidy dataset. It produces a file
+called codebookTemp.md which was then hand-edited to produce the codebook appearing in this repo.

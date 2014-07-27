@@ -6,7 +6,8 @@
 #       2. Extracts the measurements on the mean and standard deviation for each measurement. 
 #       3. Renames variables and labels for easy readability.
 #       4. Merges the training and the test sets to create one data set.
-#       5. Creates a second, independent tidy data set with the average of each variable for 
+#       5. Further tidying.
+#       6. Creates a second, independent tidy data set with the average of each variable for 
 #               each activity and each subject.
 
 # (1) Obtain data sets. A full description of the data is available here:
@@ -62,7 +63,7 @@ relevantTrainData$Activity.Label <- trainActivityLabels[,1]
 # contain distinct observations along identical sets of (originally 561, now 81) variables.
 fullData <- rbind(relevantTestData, relevantTrainData)
 
-# (3) Relabeling and tidying:
+# (5) Relabeling and tidying:
 descriptor <- c("walking", "walking_upstairs", "walking_downstairs", "sitting", "standing", "laying")
 varList <- lapply(fullData[,81], function(x) descriptor[x])
 fullData$Activity <- unlist(varList)
@@ -78,7 +79,7 @@ fullData <- cbind(fullData[,c(80,82)], fullData[,1:79])
 # fullData[,2] <- replace(fullData[,2], which(fullData[,2]=="5"), "standing")
 # fullData[,2] <- replace(fullData[,2], which(fullData[,2]=="6"), "laying")
 
-# (5) Creates independent tidy data set with the average of each variable for 
+# (6) Creates independent tidy data set with the average of each variable for 
 # each activity and each subject.
 library(reshape2)
 dataMelt <- melt(fullData, id.vars=1:2)

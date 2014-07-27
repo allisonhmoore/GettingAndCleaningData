@@ -1,12 +1,13 @@
-# This script automatically generates text for the codebook describing each of the variables 
-# in the "tidyData.txt,"  the dataset produced by run_analysis.R. The formatted codebook as
-# a final product is available in the markdown file "codebook.md."
+# This script automatically generates text to be used in the codebook describing each of the variables 
+# in the "tidyData.txt,"  the dataset produced by run_analysis.R. The formatted codebook as a final 
+# product is available in the markdown file "CodeBook.md."
 
 
 # Load all the coded variable names
 codebookText <- read.table("./data/codes.txt")
 
 # Description pieces
+commonDescription <- "Measurement is an average over the measurements of the variable in the V1.0 data with same name for this label and activity. Originally a time domain signal captured at a constant rate of 50 Hz. Measurement was filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise."
 fourier <- "The prefix \"f\" rather than \"t\" (time) indicates that this measurement is a frequency domain signal, obtained by applying a Fast Fourier Transform."
 Acc <- "The measurement comes from the 3-axial accelerometer"
 Gyro <- "The measurement comes from the 3-axial gyroscope"
@@ -18,11 +19,11 @@ BodyAcc <- "The accelerometer signal was separated into body and gravity acceler
 GravityAcc <- "The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. This measures the gravity signal."
 AccJerk <- "Subsequently, the body linear acceleration was derived in time to obtain Jerk signal."
 GyroJerk <- "Subsequently, the angular velocity was derived in time to obtain Jerk signal."
-meanSent <- "The measurememnt recorded in the original (Version 1.0) dataset estimated the mean of these signals. The measurement that you see in the tidy datset (Version 2.0) calculates the average of all such measurements for each subject label and each activity"
-stdSent <- "The measurememnt recorded in the original (Version 1.0) dataset estimated the standard deviation of these signals. The measurement that you see in the tidy datset (Version 2.0) calculates the average of all such measurements for each subject label and each activity"
+meanSent <- "The measurememnt recorded in the original (Version 1.0) dataset estimated the mean of these signals."
+stdSent <- "The measurememnt recorded in the original (Version 1.0) dataset estimated the standard deviation of these signals." 
 
 # Function that pieces together the appropriate description.
-describer_function <- function(x, variableDescription = "The measurement is a time domain signal captured at a constant rate of 50 Hz. Measurement was filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise.") {
+describer_function <- function(x, variableDescription = commonDescription) {
         sentence <- variableDescription
         if (any(grepl("^f", x))) sentence <- paste(sentence, fourier)
         if (any(grepl("Acc", x))) sentence <- paste(sentence, Acc)
@@ -50,9 +51,11 @@ describer_function <- function(x, variableDescription = "The measurement is a ti
 
 newColumn <- unlist(lapply(codebookText[,1], describer_function))
 codebookText$Description <- unlist(lapply(codebookText[,1], describer_function))
-head(codebookText)
-codebookText[2, 2]
-library(xtable)
-xt <- xtable(codebookText, caption="Codebook for Version 2.0 (Tidy Version) of Smartphone Dataset")
-write(print(xt, type="HTML"), "./data/codebookXT.html")
-write.csv(codebookText, "./data/codebook.csv")
+write.table(codebookText, file="./data/codebookTemp.txt", quote = FALSE, sep = "\n",  eol = "\n#### ", 
+            row.names = FALSE, col.names = FALSE)
+
+# ## Alternatively, print to HTML:
+# library(xtable)
+# xt <- xtable(codebookText, caption="Codebook for Version 2.0 (Tidy Version) of Smartphone Dataset")
+# write(print(xt, type="HTML"), "./data/codebookXT.html")
+
