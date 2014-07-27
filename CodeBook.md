@@ -6,12 +6,12 @@
 1. Introductory information about the tidy dataset produced by run_analysis.R
 2. Information about data cleaning done in run_analysis.R
 3. Original source of the data and information about the data from the original (Version 1.0) codebook
-4. Explicit detailed information about variables appearing in the tiny data (long)
+4. Explicit detailed information about variables appearing in the tiny data (__Warning:__ Long!)
 
 ### 1. Introductory information about the tidy dataset produced by run_analysis.R
-The run_analysis.R script produces a tidy dataset of 180 observations and 81 variables. The first two variables (columns 1 and 2) describe a subject label and activity. Subject labels range between  1 and 30 (that is, there were 30 participants in the study) and the given activity is one of six types (walking, walking upstairs, walking downstairs, sitting, standing, laying). For each subject label and activity, the remaining 79 variables each provide an average value of a certian kind of measurement extracted from the Version 1.0 data.
+The run_analysis.R script produces a tidy dataset of 180 observations and 81 variables. The first two variables (columns 1 and 2) describe the activity and subject. Subject labels range between  1 and 30 (that is, there were 30 participants in the study) and the given activity is one of six types (walking, walking upstairs, walking downstairs, sitting, standing, laying). For each subject label and activity, the remaining 79 variables each provide an average value of a certian kind of measurement extracted from the Version 1.0 data.
 
-All measurements were originally time domain signals captured at a constant rate of 50 Hz. Measurements were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. For more information, see section 4. 
+All measurements were originally time domain signals captured at a constant rate of 50 Hz. Measurements were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. For more information, see section 3. 
 
 __Important Distinction__ The measurements appearing in the tidy data set represent the *average* over all measurements of the same name, for that subject and activity.
 
@@ -27,7 +27,6 @@ In part (3) of the script, the auxiliary data is used to give names to the colum
 In part (4) the two main data sets, now with descriptive variable names and extra columns, are merged with a row bind.
 In part (5) the unified dataset is further tidied by replacing numeric activity labels with better character descriptions.
 In part (6), the reshape2 library is loaded, and melt() and cast() are used to produced a tidy, summarized dataset that displays the average of each variable for each activity and each subject.
-
 
 ### 3. Original source of the data and information about the data from the original (Version 1.0) codebook
 The information that follows in this section is taken verbatim from the original files accompanying the source dataset. The link to the source data and its accompanying files is available here:
