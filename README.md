@@ -35,6 +35,12 @@ The run_analysis.R script produces a tidy dataset of 180 observations and 81 var
 
 Detailed information about the variables, the data, and transformations applied to clean up the data is available in CodeBook.md.
 
+To view the tidy data set, implement in R:
+```
+tidy <- read.table("./data/tidyData.txt", header=TRUE)
+tidy[1:10, 1:5]
+```
+
 ### Information about codebook_helper.R
 ------------
 This script takes descriptions about the data from the original source data files, and complies an
