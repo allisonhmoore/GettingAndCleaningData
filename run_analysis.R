@@ -87,5 +87,5 @@ tidyData <- dcast(dataMelt, Activity + Subject.Label ~ variable, mean)
 write.table(tidyData, "./data/tidyData.txt", row.names=FALSE)
 
 # Additional info for the codebook
-codes <- colnames(fullData)
+codes <- colnames(tidyData)
 write.table(codes, "./data/codes.txt", row.names=FALSE, col.names=FALSE)
