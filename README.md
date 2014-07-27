@@ -1,16 +1,13 @@
-## Human Activity Recognition Using Smartphones Dataset
-#### Version 2.0
+## Human Activity Recognition Using Smartphones Dataset -- Version 2.0
 
 A script to tidy the "Human Activity Recognition Using Smartphones Dataset, Version 1.0" and codebook describing the variables in Version 2.0 dataset (tidied dataset)
 
 ### This repo contains four files:
 ------------
 * README.md -- this file.
-* run_analysis.R -- this is script which downloads a certain set of smartphone data, then 
-        merges and tidies the data sets and produces a single, tidy dataset summarizing some 
-        of the variables.
-* CodeBook.md -- a codebook describing the variables in the tidy dataset
-* codebook_helper.R -- an optional helper file that programmatically creates the variable descriptions 
+* run_analysis.R -- a script which downloads a certain collection of smartphone data sets and auxiliary files, then merges and tidies the data sets to produce a single, tidy dataset describing averages of some of the variables.
+* CodeBook.md -- a codebook describing the variables in the tidy dataset and process for tidying data.
+* codebook_helper.R -- an *optional* helper file that programmatically creates the variable descriptions 
         seen in Codebook.md.
 
 ### Information about run_analysis.R
@@ -43,6 +40,6 @@ tidy[1:10, 1:5]
 
 ### Information about codebook_helper.R
 ------------
-This script takes descriptions about the data from the original source data files, and complies an
+This optional script takes descriptions about the data from the original source data files, and complies an
 appropriate description for each of the variables appearing in the tidy dataset. It produces a file
 called codebookTemp.txt which may then be copy and pasted to augment CodeBook.md appearing in this repo.

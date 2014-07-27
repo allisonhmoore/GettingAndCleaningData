@@ -6,7 +6,7 @@
 1. Introductory information about the tidy dataset produced by run_analysis.R
 2. Information about data cleaning done in run_analysis.R
 3. Original source of the data and information about the data from the original (Version 1.0) codebook
-4. Explicit information about variables appearing in the tiny data (__Warning: Long!__)
+4. Explicit information about variables appearing in the tidy data (__Warning: Long!__)
 
 ### 1. Introductory information about the tidy dataset produced by run_analysis.R
 ------------
@@ -71,7 +71,7 @@ These signals were used to estimate variables of the feature vector for each pat
 
 *For further information, please visit the links above and download the original files*
 
-### 4. Explicit information about variables appearing in the tiny data (long)
+### 4. Explicit information about variables appearing in the tidy data (long)
 ------------
 #### Subject.Label
 Labels (1 - 30) describing which subject conducted the experiement. 
