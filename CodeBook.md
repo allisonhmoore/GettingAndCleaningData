@@ -6,7 +6,7 @@
 1. Introductory information about the tidy dataset produced by run_analysis.R
 2. Information about data cleaning done in run_analysis.R
 3. Original source of the data and information about the data from the original (Version 1.0) codebook
-4. Explicit detailed information about variables appearing in the tiny data (__Warning:__ Long!)
+4. Explicit information about variables appearing in the tiny data (__Warning: Long!__)
 
 ### 1. Introductory information about the tidy dataset produced by run_analysis.R
 ------------
@@ -21,16 +21,18 @@ __Important Distinction:__ The measurements appearing in the tidy data set repre
 The two main data sets that are merged and tidied are the training and test data sets:
 * Testing data: test/X_test.txt
 * Training data: train/X_train.txt
+
 All of the other data sets loaded into R provide auxilary information about the names and labels describing the either the variables, the subjects, or the activities.
 
-In part (1) of the script, the two main data sets and auxilary data are loaded in.
-In part (2) of the script, a grep is performed on the list of variable descriptors to determine which measurements contain information about mean() or std() calculations. This includes measurements of meanFreq(). Then, then two main data sets are subsetted to retain only the columns corresponding with these measurements.
-In part (3) of the script, the auxiliary data is used to give names to the columns of the two main data sets. Also, additional columns are added to the two main data sets to indicate the Subject and Activity for each observation.
-In part (4) the two main data sets, now with descriptive variable names and extra columns, are merged with a row bind.
-In part (5) the unified dataset is further tidied by replacing numeric activity labels with better character descriptions.
-In part (6), the reshape2 library is loaded, and melt() and cast() are used to produced a tidy, summarized dataset that displays the average of each variable for each activity and each subject.
+__What the script does:__
+*In part (1) of the script, the two main data sets and auxilary data are loaded in.
+*In part (2) of the script, a grep is performed on the list of variable descriptors to determine which measurements contain information about mean() or std() calculations. This includes measurements of meanFreq(). Then, then two main data sets are subsetted to retain only the columns corresponding with these measurements.
+*In part (3) of the script, the auxiliary data is used to give names to the columns of the two main data sets. Also, additional columns are added to the two main data sets to indicate the Subject and Activity for each observation.
+*In part (4) the two main data sets, now with descriptive variable names and extra columns, are merged with a row bind.
+*In part (5) the unified dataset is further tidied by replacing numeric activity labels with better character descriptions.
+*In part (6), the reshape2 library is loaded, and melt() and cast() are used to produced a tidy, summarized dataset that displays the average of each variable for each activity and each subject.
 
-### 3. Original source of the data and information about the data from the original (Version 1.0) codebook
+### 3. Original source of the data and info from the original (Version 1.0) codebook
 ------------
 The information that follows in this section is taken verbatim from the original files accompanying the source dataset. The link to the source data and its accompanying files is available here:
 
@@ -43,12 +45,17 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 #### Human Activity Recognition Using Smartphones Dataset
 #### Version 1.0
 
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
+>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+
+>Smartlab - Non Linear Complex Systems Laboratory
+
+>DITEN - Università degli Studi di Genova.
+
+>Via Opera Pia 11A, I-16145, Genoa, Italy.
+
+>activityrecognition@smartlab.ws
+
+>www.smartlab.ws
 
 #### Feature Selection 
 
@@ -63,10 +70,10 @@ These signals were used to estimate variables of the feature vector for each pat
 
 *For further information, please visit the links above and download the original files*
 
-### 4. Explicit detailed information about variables appearing in the tiny data (long)
+### 4. Explicit information about variables appearing in the tiny data (long)
 ------------
 #### Subject.Label
-Labels (1 - 30) describing which subject conducting the experiement. 
+Labels (1 - 30) describing which subject conducted the experiement. 
 #### Activity
 The activity undertaken by the subject during measurement. Either walking, walking upstairs, walking downstairs, sitting, standing, or laying.
 #### tBodyAcc-mean()-X
